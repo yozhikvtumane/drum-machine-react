@@ -1,12 +1,11 @@
 import React from 'react'
-import Key from '../src/components'
+import Key from './Key'
 
 
 
-function Board() {
-	render() {
-		<Key />
-	}
+const Board = () => {
+	return <Key />
+	
 }
 
 export default Board

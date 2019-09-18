@@ -1,5 +1,5 @@
 import React from 'react'
-// import Board from '../components/Board'
+import Board from '../components/Board'
 // import './App.css'
 
 // DrumMachine (will include Board, Mode switcher, display maybe)
@@ -44,6 +44,7 @@ class DrumMachine extends React.Component {
 		
 		return (
 			<div className="drumMachine">
+				<Board />
 				<div className="audios">{audios}</div>
 			</div>
 		)
