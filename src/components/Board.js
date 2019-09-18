@@ -1,11 +1,17 @@
 import React from 'react'
 import Key from './Key'
-
+import ModeSelector from './ModeSelector'
 
 
 class Board extends React.Component {
 	render() {
-		return <Key />
+		return (
+			<div>
+				<Key />
+				<ModeSelector />
+			</div>
+			
+		)
 	}
 }
 
