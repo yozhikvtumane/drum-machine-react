@@ -1,5 +1,6 @@
 import React from 'react'
 import Board from '../components/Board'
+// import Key from '../components/Key'
 // import './App.css'
 
 // DrumMachine (will include Board, Mode switcher, display maybe)
