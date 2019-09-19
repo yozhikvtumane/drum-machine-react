@@ -37,15 +37,17 @@ const modes = {
 class DrumMachine extends React.Component {
 	
 	render() {
-		let keys = [...modes.drums.keyCodes]
+		let keyCodes = [...modes.drums.keyCodes]
+		let keys = [...modes.drums.keys]
 		let audios = modes.drums.samples.map( (sample, i, arr) => {
-			return <audio src={`../src/static/samples/drums/${sample}`} data-key={keys[i]} key={keys[i]}></audio>
+			return <audio src={`../src/static/samples/drums/${sample}`} data-key={keyCodes[i]} key={keyCodes[i]}></audio>
 		})
+		
 		
 		
 		return (
 			<div className="drumMachine">
-				<Board />
+				<Board keys={keys} keyCodes={keyCodes}/>
 				<div className="audios">{audios}</div>
 			</div>
 		)
