@@ -44,8 +44,9 @@ class DrumMachine extends React.Component {
 		const keyCodes = [...modes.drums.keyCodes]
 		const keys = [...modes.drums.keys]
 		const audios = modes.drums.samples.map( (sample, i, arr) => {
-			
-			return <audio ref="audio_tag" src={`/public/static/samples/drums/${sample}`} data-key={keyCodes[i]} key={keyCodes[i]}></audio>
+			let myRef = React.createRef()
+			console.log(myRef)
+			return <audio ref={myRef} type="audio/wav" src={`/public/static/samples/drums/${sample}`} data-key={keyCodes[i]} key={keyCodes[i]}></audio>
 		})
 		
 		

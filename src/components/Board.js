@@ -16,7 +16,7 @@ class Board extends React.Component {
 		const sound = document.querySelector(`audio[data-key="${e.keyCode}"]`)
 		console.log(sound)
 		if (!sound) return
-		sound.play().catch(err=> console.log(err))
+		sound.play().catch(err=> console.dir(err))
 	}
 	
 	componentDidMount() {
