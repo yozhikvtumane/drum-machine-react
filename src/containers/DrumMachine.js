@@ -35,11 +35,16 @@ const modes = {
 
 // Init component for the app
 class DrumMachine extends React.Component {
+	handleKeyPress() {
+		let blaBla = document.getElementById('root')
+		console.log(blaBla)
+	}
+	
 	
 	render() {
-		let keyCodes = [...modes.drums.keyCodes]
-		let keys = [...modes.drums.keys]
-		let audios = modes.drums.samples.map( (sample, i, arr) => {
+		const keyCodes = [...modes.drums.keyCodes]
+		const keys = [...modes.drums.keys]
+		const audios = modes.drums.samples.map( (sample, i, arr) => {
 			return <audio src={`../src/static/samples/drums/${sample}`} data-key={keyCodes[i]} key={keyCodes[i]}></audio>
 		})
 		

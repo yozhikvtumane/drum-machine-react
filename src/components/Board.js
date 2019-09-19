@@ -8,17 +8,14 @@ class Board extends React.Component {
 		super(props)
 		this.props = props
 	}
-	// let props = {
-	// 	keyId: "123",
-	// }
+
 	render() {
 		console.log(this.props)
-		let keys = this.props.keys.map( (key, i, arr) => {
+		const keys = this.props.keys.map( (key, i, arr) => {
 			return (
 				<Key keyId={this.props.keyCodes[i]} keyName={key} />
 			)
 		})
-		{/* let keyCodes = this.props.keyCodes.map(keyCode => keyCode) */}
 		console.log(keys)
 		return (
 			<div>
@@ -29,15 +26,5 @@ class Board extends React.Component {
 		)
 	}
 }
-
-// const Board = () => {
-// 	return (
-// 		<React.Fragment>
-// 			<Key />
-// 		</React.Fragment>
-// 	)
-	
-// }
-
 
 export default Board
