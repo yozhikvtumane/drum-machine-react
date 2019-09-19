@@ -1,6 +1,7 @@
 import React from 'react'
 import Board from '../components/Board'
 // import * as samplez from '../static/samples/drums'
+import sample1 from '../static/samples/drums/808CLAP'
 
 // console.log(samplez)
 // import Key from '../components/Key'
@@ -22,7 +23,7 @@ const modes = {
 			"78MBEAT_C.wav",
 			"78OHH.wav",
 			"78TAMB.wav",
-			"808CLAP.wav",
+			sample1,
 			"808K_A.wav",
 			"808S_A.wav",
 			"808T_B.wav",

@@ -11,14 +11,16 @@ class Board extends React.Component {
 		
 		this.handleKeyPress = this.handleKeyPress.bind(this)
 	}
+	
+	
 	handleKeyPress(e) {
 		console.log(e)
 		const sound = document.querySelector(`audio[data-key="${e.keyCode}"]`)
-		// console.dir(sound)
+		console.log(sound.dataset.key)
 		if (!sound) return
-		sound.load()
-		sound.play()
-		// sound.play().catch(err=> console.dir(err))
+		// sound.load()
+		sound.play().then(data=> console.log(data))
+		// sound.play().catch(err=> console.log(err))
 	}
 	
 	// componentDidMount() {
