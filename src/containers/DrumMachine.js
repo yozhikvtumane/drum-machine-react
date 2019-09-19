@@ -8,7 +8,7 @@ import Board from '../components/Board'
 // Mode  ( synth / drum / misc (shakers etc) ) + Mode switcher
 // SOUNDS - how to handle sounds????
 //
-
+//
 
 const modes = {
 	drums: {
