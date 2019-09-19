@@ -13,9 +13,16 @@ class Board extends React.Component {
 	// }
 	render() {
 		console.log(this.props)
+		let keys = this.props.keys.map( (key, i, arr) => {
+			return (
+				<Key keyId={this.props.keyCodes[i]} keyName={key} />
+			)
+		})
+		{/* let keyCodes = this.props.keyCodes.map(keyCode => keyCode) */}
+		console.log(keys)
 		return (
 			<div>
-				<Key />
+				{keys}
 				<ModeSelector />
 			</div>
 			
