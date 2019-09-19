@@ -14,10 +14,18 @@ class Board extends React.Component {
 	handleKeyPress(e) {
 		console.log(e)
 		const sound = document.querySelector(`audio[data-key="${e.keyCode}"]`)
-		console.log(sound)
+		// console.dir(sound)
 		if (!sound) return
-		sound.play().catch(err=> console.dir(err))
+		sound.load()
+		sound.play()
+		// sound.play().catch(err=> console.dir(err))
 	}
+	
+	// componentDidMount() {
+	// 	window.addEventListener('keydown' , (e) => this.handleKeyPress(e))
+	// 	console.log("Hello from componentDidMount() ")
+	// }
+	
 	
 	componentDidMount() {
 		window.addEventListener('keydown' , (e) => this.handleKeyPress(e))
@@ -26,7 +34,7 @@ class Board extends React.Component {
 	
 	
 	componentWillUnmount() {
-		window.addEventListener('keydown' , (e) => this.handleKeyPress(e))
+		window.removeEventListener('keydown' , (e) => this.handleKeyPress(e))
 		console.log("Hello from componentWillUnmount() ")
 	}
 	

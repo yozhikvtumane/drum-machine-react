@@ -1,5 +1,8 @@
 import React from 'react'
 import Board from '../components/Board'
+// import * as samplez from '../static/samples/drums'
+
+// console.log(samplez)
 // import Key from '../components/Key'
 // import './App.css'
 
@@ -36,17 +39,21 @@ const modes = {
 // Init component for the app
 class DrumMachine extends React.Component {
 
-	// constructor(props) {
-	// 	super(props)
-	// 	this.myRefs = {}
-	// }
+	constructor(props) {
+		super(props)
+		this.myRefs = {}
+	}
 	render() {
 		const keyCodes = [...modes.drums.keyCodes]
 		const keys = [...modes.drums.keys]
 		const audios = modes.drums.samples.map( (sample, i, arr) => {
-			let myRef = React.createRef()
-			console.log(myRef)
-			return <audio ref={myRef} type="audio/wav" src={`/public/static/samples/drums/${sample}`} data-key={keyCodes[i]} key={keyCodes[i]}></audio>
+			// let myRef = React.createRef()
+			// console.log(myRef)
+			return (
+				<audio  data-key={keyCodes[i]} key={keyCodes[i]}>
+					<source src={`../public/static/samples/drums/${sample}`} type="audio/wav"></source>
+				</audio>
+			)
 		})
 		
 		
