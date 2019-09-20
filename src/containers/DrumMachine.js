@@ -1,10 +1,11 @@
 import React from 'react'
 import Board from '../components/Board'
 // import * as samplez from '../static/samples/drums'
-import * as drumSamples from '../static/samples/drums/drumSamples'
+// import * as drumSamples from '../static/samples/drums/drumSamples'
+import modes from '../misc/modes'
 // import soundsfiles from '../static/samples/drums/*.wav'
 
-console.log('sound: ', drumSamples)
+// console.log('sound: ', drumSamples)
 
 
 // let drumSamplez = 
@@ -19,53 +20,29 @@ console.log('sound: ', drumSamples)
 //
 //
 
-const modes = {
-	drums: {
-		keys: ["T", "Y", "U", "G", "H", "J", "B", "N", "M"],
-		keyCodes: [84, 89, 85, 71, 72, 74, 66, 78, 77],
-		samples: []
-	},
-	synths: {
-		keys: ["T", "Y", "U", "G", "H", "J", "B", "N", "M"],
-		keyCodes: [84, 89, 85, 71, 72, 74, 66, 78, 77],
-		samples: [],
-	}
-}
-
-for (let i in drumSamples) {
-	modes.drums.samples.push(drumSamples[i])
-}
-
-console.log(modes)
-// Init component for the app
 class DrumMachine extends React.Component {
 
-	constructor(props) {
-		super(props)
-		this.myRefs = {}
-	}
+	
 	render() {
 		const keyCodes = [...modes.drums.keyCodes]
 		const keys = [...modes.drums.keys]
 		const audios = modes.drums.samples.map( (sample, i, arr) => {
-			// let myRef = React.createRef()
-			// console.log(myRef)
-			console.log(sample)
+			
 			return (
 				<audio  data-key={keyCodes[i]} key={keyCodes[i]}>
-					{/* <source src={`../public/static/samples/drums/${sample}`} type="audio/wav"></source> */}
 					<source src={sample} type="audio/wav"></source>
 				</audio>
 			)
+			
 		})
 		
-		
-		
 		return (
+			
 			<div className="drumMachine">
 				<Board keys={keys} keyCodes={keyCodes} />
 				<div className="audios">{audios}</div>
 			</div>
+		
 		)
 	}
 }
