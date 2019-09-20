@@ -36,6 +36,19 @@ class DrumMachine extends React.Component {
 	changeMode(e) {
 		if (e.keyCode !== 81) return
 		console.log(e.keyCode)
+		console.log("state")
+		console.dir(this.state)
+		
+		if (this.state.mode === "synth") {
+			this.setState( () => {
+				return {...modes.drums}
+			})
+		} else {
+			this.setState( () => {
+				return {...modes.synth}
+			})
+			
+		}
 	}
 	
 	render() {
@@ -46,8 +59,8 @@ class DrumMachine extends React.Component {
 		const audios = this.state.samples.map( (sample, i, arr) => {
 			
 			return (
-				<audio  data-key={keyCodes[i]} key={keyCodes[i]}>
-					<source src={sample} type="audio/wav"></source>
+				<audio  data-key={keyCodes[i]} key={keyCodes[i]} src={sample}>
+					{/* <source src={sample} type="audio/wav"></source> */}
 				</audio>
 			)
 			
