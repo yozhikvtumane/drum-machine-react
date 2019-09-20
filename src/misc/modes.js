@@ -3,12 +3,14 @@ import * as synthSamples from '../static/samples/synths/synthSamples'
 
 const modes = {
 	drums: {
+		mode: "drums",
 		keys: ["T", "Y", "U", "G", "H", "J", "B", "N", "M"],
 		keyCodes: [84, 89, 85, 71, 72, 74, 66, 78, 77],
 		samples: []
 	},
 
-	synths: {
+	synth: {
+		mode: "synth",
 		keys: ["T", "Y", "U", "G", "H", "J", "B", "N", "M"],
 		keyCodes: [84, 89, 85, 71, 72, 74, 66, 78, 77],
 		samples: []
@@ -21,7 +23,7 @@ for (let i in drumSamples) {
 }
 
 for (let i in synthSamples) {
-	modes.synths.samples.push(synthSamples[i]) 
+	modes.synth.samples.push(synthSamples[i]) 
 }
 
 

@@ -1,10 +1,11 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import './index.css';
+import 'normalize.css'
+import './static/styles/index.css'
 import DrumMachine from '../src/containers/DrumMachine';
 // import * as serviceWorker from './serviceWorker';
 
-ReactDOM.render(<DrumMachine />, document.getElementById('root'));
+ReactDOM.render(<DrumMachine initMode="synth"/>, document.getElementById('root'));
 
 // If you want your DrumMachine to work offline and load faster, you can change
 // unregister() to register() below. Note this comes with some pitfalls.

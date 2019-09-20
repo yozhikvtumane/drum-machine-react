@@ -36,7 +36,7 @@ class Board extends React.Component {
 			
 			<div className="board">
 				{keys}
-				<ModeSelector />
+				{/* <ModeSelector /> */}
 			</div>
 			
 		)

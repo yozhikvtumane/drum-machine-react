@@ -1,0 +1,7 @@
+* {
+	box-sizing: border-box;
+}
+
+.modeSelector li {
+	list-style-type: none;
+}
