@@ -1,9 +1,6 @@
 import React from 'react'
 import Board from '../components/Board'
-// import * as samplez from '../static/samples/drums'
-// import * as drumSamples from '../static/samples/drums/drumSamples'
 import modes from '../misc/modes'
-// import soundsfiles from '../static/samples/drums/*.wav'
 
 // console.log('sound: ', drumSamples)
 
@@ -19,6 +16,7 @@ import modes from '../misc/modes'
 // • SOUNDS - how to handle sounds
 //
 //
+// ADD STATE
 
 class DrumMachine extends React.Component {
 
