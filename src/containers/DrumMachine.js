@@ -23,10 +23,8 @@ class DrumMachine extends React.Component {
 
 	constructor(props) {
 		super(props)
-		console.log(props)
 		
 		this.state = {...modes[this.props.initMode]}
-		console.log(this.state)
 	}
 	
 	componentDidMount() {
@@ -68,13 +66,13 @@ class DrumMachine extends React.Component {
 		
 		if (this.state.mode === "drums") {
 			mode = 	<ul className="modeSelector">
-						<li data-mode="drums" className="mode-switcher mode-switcher-active">DRUMS 🟢</li>
-						<li data-mode="synth" className="mode-switcher">SYNTH</li>
+						<li data-mode="drums" className="mode-switcher mode-switcher-active"><span role="img" aria-label="switch">🟢</span> DRUMS</li>
+						<li data-mode="synth" className="mode-switcher"><span role="img" aria-label="switch">⚪</span> SYNTH</li>
 					</ul>
 		} else {
 			mode = 	<ul className="modeSelector">
-						<li data-mode="drums" className="mode-switcher">DRUMS</li>
-						<li data-mode="synth" className="mode-switcher mode-switcher-active">SYNTH 🟢</li>
+						<li data-mode="drums" className="mode-switcher"><span role="img" aria-label="switch">⚪</span> DRUMS</li>
+						<li data-mode="synth" className="mode-switcher mode-switcher-active"><span role="img" aria-label="switch">🟢</span> SYNTH</li>
 					</ul>
 		}
 		

@@ -1,0 +1,42 @@
+.board {
+	display: flex;
+	flex-wrap: wrap;
+	/* flex-flow: row; */
+	justify-content: space-around;
+	
+	/* padding: 0.3em; */
+	
+}
+
+.key {
+	display: flex;
+	flex: 1 0 30%;
+	/* width: 33%; */
+	align-items: flex-end;
+	
+	margin: 0.3em 0.3em;
+	padding: 0.3em;
+	color: #dbdbdb;
+	text-shadow: 0px 1px 0px #a8a8a8;
+	background: #bdbbbb;
+	border-bottom: 2px solid #8a8888;
+	border-left: 2px solid #8a8888;
+	border-radius: 3px;
+	
+	
+}
+
+.key-active {
+	background: #8a8888;
+	border-top: 2px solid #fff;
+	border-right: 2px solid #fff;
+	border-bottom: none;
+	border-left: none;
+}
+
+.key:before {
+	content:'';
+    display:inline-block;
+    vertical-align:middle;
+    padding-top:100%;
+}

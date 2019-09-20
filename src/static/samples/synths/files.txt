@@ -1,0 +1,17 @@
+total 996
+drwxrwxrwx 1 comp1985 comp1985    512 Sep 20 17:10 .
+drwxrwxrwx 1 comp1985 comp1985    512 Sep 18 18:31 ..
+-rwxrwxrwx 1 comp1985 comp1985  77980 Jan 28  2003 ArpB_A1.wav
+-rwxrwxrwx 1 comp1985 comp1985  75640 Jan 28  2003 ArpB_A2.wav
+-rwxrwxrwx 1 comp1985 comp1985  78220 Jan 28  2003 ArpB_B1.wav
+-rwxrwxrwx 1 comp1985 comp1985  86932 Jan 28  2003 ArpB_B2.wav
+-rwxrwxrwx 1 comp1985 comp1985  63804 Jan 28  2003 ArpB_C1.wav
+-rwxrwxrwx 1 comp1985 comp1985 106996 Jan 28  2003 ArpB_C2.wav
+-rwxrwxrwx 1 comp1985 comp1985  83388 Jan 28  2003 ArpB_D1.wav
+-rwxrwxrwx 1 comp1985 comp1985  62540 Jan 28  2003 ArpB_D2.wav
+-rwxrwxrwx 1 comp1985 comp1985  73596 Jan 28  2003 ArpB_E1.wav
+-rwxrwxrwx 1 comp1985 comp1985 121596 Jan 28  2003 ArpB_E2.wav
+-rwxrwxrwx 1 comp1985 comp1985  84760 Jan 28  2003 ArpB_F1.wav
+-rwxrwxrwx 1 comp1985 comp1985  76592 Jan 28  2003 ArpB_G1.wav
+-rwxrwxrwx 1 comp1985 comp1985      0 Sep 20 17:10 files.txt
+-rwxrwxrwx 1 comp1985 comp1985    403 Sep 20 14:03 synthSamples.js

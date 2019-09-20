@@ -1,7 +1,6 @@
 import React from 'react'
 import Key from './Key'
-import ModeSelector from './ModeSelector'
-
+import '../static/styles/Board.css'
 
 class Board extends React.Component {
 	constructor(props) {
@@ -13,11 +12,13 @@ class Board extends React.Component {
 	
 	handleKeyPress(e) {
 		const sound = document.querySelector(`audio[data-key="${e.keyCode}"]`)
+		const key = document.querySelector(`div[data-key="${e.keyCode}"]`)
+		if (!sound || !key) return
 		
-		if (!sound) return
+		key.classList.add('key-active')
 		
 		sound.currentTime = 0
-		sound.play().catch(err => console.dir(err))
+		sound.play().then(sound => key.classList.remove('key-active')).catch(err => console.dir(err))
 	}
 		
 	componentDidMount() {

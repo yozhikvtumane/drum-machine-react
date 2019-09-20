@@ -11,8 +11,8 @@ const modes = {
 
 	synth: {
 		mode: "synth",
-		keys: ["T", "Y", "U", "G", "H", "J", "B", "N", "M"],
-		keyCodes: [84, 89, 85, 71, 72, 74, 66, 78, 77],
+		keys: ["R", "T", "Y", "U", "F", "G", "H", "J", "V", "B", "N", "M"],
+		keyCodes: [82, 84, 89, 85, 70, 71, 72, 74, 86, 66, 78, 77],
 		samples: []
 	}
 }

@@ -1,7 +1,9 @@
-* {
-	box-sizing: border-box;
+.drumMachine {
+	width: 50%;
+	margin: 0 auto;
+	border: 3px solid rgb(25,65,77);
+	border-radius: 3px;
 }
-
 .modeSelector li {
 	list-style-type: none;
 }
