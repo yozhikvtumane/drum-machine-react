@@ -1,16 +1,21 @@
 import React from 'react'
 import Board from '../components/Board'
 // import * as samplez from '../static/samples/drums'
-import sample1 from '../static/samples/drums/808CLAP'
+import * as drumSamples from '../static/samples/drums/drumSamples'
+// import soundsfiles from '../static/samples/drums/*.wav'
 
-// console.log(samplez)
+console.log('sound: ', drumSamples)
+
+
+// let drumSamplez = 
+// console.log('drumSamplez', drumSamplez)
 // import Key from '../components/Key'
 // import './App.css'
 
 // DrumMachine (will include Board, Mode switcher, display maybe)
 // Board (sl func) > keys (sf class) (Key [data-key] prop) => create with map from data for each mode (json built-in ? json fetch from sources)
 // Mode  ( synth / drum / misc (shakers etc) ) + Mode switcher
-// SOUNDS - how to handle sounds????
+// • SOUNDS - how to handle sounds
 //
 //
 
@@ -18,17 +23,7 @@ const modes = {
 	drums: {
 		keys: ["T", "Y", "U", "G", "H", "J", "B", "N", "M"],
 		keyCodes: [84, 89, 85, 71, 72, 74, 66, 78, 77],
-		samples: [
-			"78K.wav",
-			"78MBEAT_C.wav",
-			"78OHH.wav",
-			"78TAMB.wav",
-			sample1,
-			"808K_A.wav",
-			"808S_A.wav",
-			"808T_B.wav",
-			"909S.wav,"
-		]
+		samples: []
 	},
 	synths: {
 		keys: ["T", "Y", "U", "G", "H", "J", "B", "N", "M"],
@@ -37,6 +32,11 @@ const modes = {
 	}
 }
 
+for (let i in drumSamples) {
+	modes.drums.samples.push(drumSamples[i])
+}
+
+console.log(modes)
 // Init component for the app
 class DrumMachine extends React.Component {
 
@@ -50,9 +50,11 @@ class DrumMachine extends React.Component {
 		const audios = modes.drums.samples.map( (sample, i, arr) => {
 			// let myRef = React.createRef()
 			// console.log(myRef)
+			console.log(sample)
 			return (
 				<audio  data-key={keyCodes[i]} key={keyCodes[i]}>
-					<source src={`../public/static/samples/drums/${sample}`} type="audio/wav"></source>
+					{/* <source src={`../public/static/samples/drums/${sample}`} type="audio/wav"></source> */}
+					<source src={sample} type="audio/wav"></source>
 				</audio>
 			)
 		})
