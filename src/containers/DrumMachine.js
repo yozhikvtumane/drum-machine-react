@@ -17,7 +17,7 @@ import '../static/styles/DrumMachine.css'
 // • SOUNDS - how to handle sounds
 //
 //
-// ADD STATE
+// • ADD STATE
 
 class DrumMachine extends React.Component {
 

@@ -15,7 +15,8 @@
 	align-items: flex-end;
 	
 	margin: 0.3em 0.3em;
-	padding: 0.3em;
+	padding-bottom: 25%;
+	/* padding: 0.3em; */
 	color: #dbdbdb;
 	text-shadow: 0px 1px 0px #a8a8a8;
 	background: #bdbbbb;
@@ -34,9 +35,9 @@
 	border-left: none;
 }
 
-.key:before {
+/* .key:before {
 	content:'';
     display:inline-block;
     vertical-align:middle;
-    padding-top:100%;
-}
+    padding-bottom: 100%;
+} */
