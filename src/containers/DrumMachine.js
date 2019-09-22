@@ -16,8 +16,8 @@ import '../static/styles/DrumMachine.css'
 // Mode  ( synth / drum / misc (shakers etc) ) + Mode switcher
 // • SOUNDS - how to handle sounds
 //
-//
 // • ADD STATE
+// Conditional grid render for keys (3/4 in row)
 
 class DrumMachine extends React.Component {
 
