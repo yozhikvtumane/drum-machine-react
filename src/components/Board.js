@@ -6,6 +6,7 @@ class Board extends React.Component {
 	constructor(props) {
 		super(props)
 		this.props = props
+		console.log(this.props)
 		this.handleKeyPress = this.handleKeyPress.bind(this)
 	}
 	
@@ -35,7 +36,7 @@ class Board extends React.Component {
 		})
 		return (
 			
-			<div className="board">
+			<div className={`board board-${this.props.mode}`}>
 				{keys}
 				{/* <ModeSelector /> */}
 			</div>

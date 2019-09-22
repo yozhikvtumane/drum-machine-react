@@ -17,7 +17,7 @@ import '../static/styles/DrumMachine.css'
 // • SOUNDS - how to handle sounds
 //
 // • ADD STATE
-// Conditional grid render for keys (3/4 in row)
+// Conditional grid render for keys (3/4 in row) - Board property
 
 class DrumMachine extends React.Component {
 
@@ -57,9 +57,7 @@ class DrumMachine extends React.Component {
 		const audios = this.state.samples.map( (sample, i, arr) => {
 			
 			return (
-				<audio  data-key={keyCodes[i]} key={keyCodes[i]} src={sample}>
-					{/* <source src={sample} type="audio/wav"></source> */}
-				</audio>
+				<audio  data-key={keyCodes[i]} key={keyCodes[i]} src={sample}></audio>
 			)
 			
 		})
@@ -78,14 +76,23 @@ class DrumMachine extends React.Component {
 		
 		return (
 			
-			<div className="drumMachine">
+			<React.Fragment>
 				<div className="modeSelector">
 					<span>Mode:</span>
 					{mode}
 				</div>
-				<Board keys={keys} keyCodes={keyCodes} />
+				<Board keys={keys} keyCodes={keyCodes} mode={this.state.mode}/>
 				<div className="audios">{audios}</div>
-			</div>
+			</React.Fragment>
+			
+			// <div className="drumMachine">
+			// 	<div className="modeSelector">
+			// 		<span>Mode:</span>
+			// 		{mode}
+			// 	</div>
+			// 	<Board keys={keys} keyCodes={keyCodes} />
+			// 	<div className="audios">{audios}</div>
+			// </div>
 		
 		)
 	}

@@ -1,7 +1,7 @@
-.drumMachine {
-	/* width: 100%; */
+#drumMachine {
+	width: 60%;
 	/* height: 100%; */
-	position: relative;
+	/* position: relative; */
 	margin: 0 auto;
 	/* border: 3px solid rgb(25,65,77); */
 	border-radius: 3px;
