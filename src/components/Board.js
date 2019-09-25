@@ -24,7 +24,6 @@ class Board extends React.Component {
 		
 	componentDidMount() {
 		window.addEventListener('keydown', (e) => this.handleKeyPress(e))
-		window.addEventListener('onclick', (e) => this.handleKeyPress(e))
 	}
 			
 	render() {

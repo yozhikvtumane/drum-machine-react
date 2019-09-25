@@ -21,6 +21,7 @@ import '../static/styles/Board.css'
 // • ADD STATE
 // • Conditional grid render for keys (3/4 in row) - Board property
 // Add Key click event
+// https://stackoverflow.com/a/44434971
 
 class DrumMachine extends React.Component {
 
@@ -28,6 +29,7 @@ class DrumMachine extends React.Component {
 		super(props)
 		
 		this.state = {...modes[this.props.initMode]}
+		this.changeMode = this.changeMode.bind(this)
 	}
 	
 	componentDidMount() {
@@ -35,7 +37,11 @@ class DrumMachine extends React.Component {
 	}
 	
 	changeMode(e) {
-		// console.log(e.target)
+		// console.log(e.nativeEvent.type)
+		console.log(e)
+		// if (e.nativeEvent.type === undefined) {
+			
+		// }
 		
 		if (e.keyCode !== 81) return
 		const key = document.querySelector(`div[data-key="${e.keyCode}"]`)
@@ -90,7 +96,7 @@ class DrumMachine extends React.Component {
 			<React.Fragment>
 				<h1 className="title">Reactive DM 3000</h1>
 				<div className="modeSelector">
-					<Key keyName="modeSwitcher" keyId={81}/>
+					<Key keyName="modeSwitcher" keyId={81} clickHandler={this.changeMode}/>
 					{mode}
 				</div>
 				<Board keys={keys} keyCodes={keyCodes} mode={this.state.mode}/>
