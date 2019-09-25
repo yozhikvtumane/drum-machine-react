@@ -15,6 +15,16 @@
 
 #ca6209 */
 
+.modeSelector {
+	display: flex;
+	margin-bottom: 2em;
+	padding: 0.3em;
+}
 .modeSelector li {
 	list-style-type: none;
+}
+.modeSelectorLED {
+	display: flex;
+	flex-direction: column;
+	justify-content: space-around;
 }

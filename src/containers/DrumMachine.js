@@ -1,5 +1,6 @@
 import React from 'react'
 import Board from '../components/Board'
+import Key from '../components/Key'
 import modes from '../misc/modes'
 import '../static/styles/DrumMachine.css'
 
@@ -63,12 +64,12 @@ class DrumMachine extends React.Component {
 		})
 		
 		if (this.state.mode === "drums") {
-			mode = 	<ul className="modeSelector">
+			mode = 	<ul className="modeSelectorLED">
 						<li data-mode="drums" className="mode-switcher mode-switcher-active"><span role="img" aria-label="switch">🟢</span> DRUMS</li>
 						<li data-mode="synth" className="mode-switcher"><span role="img" aria-label="switch">⚪</span> SYNTH</li>
 					</ul>
 		} else {
-			mode = 	<ul className="modeSelector">
+			mode = 	<ul className="modeSelectorLED">
 						<li data-mode="drums" className="mode-switcher"><span role="img" aria-label="switch">⚪</span> DRUMS</li>
 						<li data-mode="synth" className="mode-switcher mode-switcher-active"><span role="img" aria-label="switch">🟢</span> SYNTH</li>
 					</ul>
@@ -78,7 +79,7 @@ class DrumMachine extends React.Component {
 			
 			<React.Fragment>
 				<div className="modeSelector">
-					<span>Mode:</span>
+					<Key keyName="modeSwitcher" keyId={81}/>
 					{mode}
 				</div>
 				<Board keys={keys} keyCodes={keyCodes} mode={this.state.mode}/>
