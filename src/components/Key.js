@@ -17,6 +17,7 @@ function Key(props) {
 			<div className="key" data-key={props.keyId}>
 				<kbd>{props.keyName}</kbd>
 			</div>
+			
 		)			
 	}
 
