@@ -23,14 +23,15 @@ class Board extends React.Component {
 	}
 		
 	componentDidMount() {
-		window.addEventListener('keydown' , (e) => this.handleKeyPress(e))
+		window.addEventListener('keydown', (e) => this.handleKeyPress(e))
+		window.addEventListener('onclick', (e) => this.handleKeyPress(e))
 	}
 			
 	render() {
 		const keys = this.props.keys.map( (key, i, arr) => {
 			return (
 				
-				<Key keyId={this.props.keyCodes[i]} keyName={key} />
+				<Key keyId={this.props.keyCodes[i]} keyName={key} onClick={this.handleKeyPress} />
 			
 			)
 		})
@@ -38,7 +39,6 @@ class Board extends React.Component {
 			
 			<div className={`board board-${this.props.mode}`}>
 				{keys}
-				{/* <ModeSelector /> */}
 			</div>
 			
 		)

@@ -19,7 +19,8 @@ import '../static/styles/Board.css'
 // • SOUNDS - how to handle sounds
 //
 // • ADD STATE
-// Conditional grid render for keys (3/4 in row) - Board property
+// • Conditional grid render for keys (3/4 in row) - Board property
+// Add Key click event
 
 class DrumMachine extends React.Component {
 
@@ -47,15 +48,16 @@ class DrumMachine extends React.Component {
 		
 		if (this.state.mode === "synth") {
 			this.setState( () => {
+				key.classList.remove('key-active')
 				return {...modes.drums}
 			})
 		} else {
 			this.setState( () => {
+				key.classList.remove('key-active')
 				return {...modes.synth}
 			})
 			
 		}
-		key.classList.remove('key-active')
 	}
 	
 	render() {
@@ -86,6 +88,7 @@ class DrumMachine extends React.Component {
 		return (
 			
 			<React.Fragment>
+				<h1 className="title">Reactive DM 3000</h1>
 				<div className="modeSelector">
 					<Key keyName="modeSwitcher" keyId={81}/>
 					{mode}
