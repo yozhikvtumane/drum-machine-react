@@ -11,6 +11,7 @@
 	grid-template-columns: 25% 25% 25% 25%;
 }
 
+
 .key {
 	display: flex;
 	align-items: flex-end;
