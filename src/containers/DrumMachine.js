@@ -3,6 +3,7 @@ import Board from '../components/Board'
 import Key from '../components/Key'
 import modes from '../misc/modes'
 import '../static/styles/DrumMachine.css'
+import '../static/styles/Board.css'
 
 // console.log('sound: ', drumSamples)
 
@@ -33,7 +34,13 @@ class DrumMachine extends React.Component {
 	}
 	
 	changeMode(e) {
+		// console.log(e.target)
+		
 		if (e.keyCode !== 81) return
+		const key = document.querySelector(`div[data-key="${e.keyCode}"]`)
+		console.log("key" , key)
+		key.classList.add('key-active')
+		
 		console.log(e.keyCode)
 		console.log("state")
 		console.dir(this.state)
@@ -48,6 +55,7 @@ class DrumMachine extends React.Component {
 			})
 			
 		}
+		key.classList.remove('key-active')
 	}
 	
 	render() {

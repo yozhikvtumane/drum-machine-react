@@ -1,14 +1,12 @@
 #drumMachine {
 	width: 60%;
-	/* height: 100%; */
-	/* position: relative; */
 	margin: 0 auto;
-	/* border: 3px solid rgb(25,65,77); */
+	padding: 0.5em;
 	border-radius: 3px;
 	background: #ef7508;
 	/* border-left: 20px solid #ca6209; */
 	/* border-bottom: 20px solid #ca6209; */
-	/* box-shadow: 20px 0px 0px #ca6209; */
+	box-shadow: -20px 20px 0px #ca6209;
 }
 
 /* #ef7508
@@ -20,11 +18,4 @@
 	margin-bottom: 2em;
 	padding: 0.3em;
 }
-.modeSelector li {
-	list-style-type: none;
-}
-.modeSelectorLED {
-	display: flex;
-	flex-direction: column;
-	justify-content: space-around;
-}
+

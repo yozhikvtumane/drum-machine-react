@@ -1,6 +1,6 @@
 import React from 'react'
 import Key from './Key'
-import '../static/styles/Board.css'
+
 
 class Board extends React.Component {
 	constructor(props) {

@@ -1,6 +1,9 @@
 .board {
-	height: 80%;
 	display: grid;
+	
+	/* padding: 0.5em; */
+	
+	height: 80%;
 }
 
 .board-drums {
@@ -31,14 +34,11 @@
 .key-modeSwitcher {
 	
 	display: flex;
-	/* align-items: flex-end; */
 	flex-direction: column;
 	align-content: space-between;
-	/* margin: 0.3em 0.3em; */
-	/* padding-top: 5%; */
-	/* padding-bottom: 0.3em; */
-	/* padding-left: 0.3em; */
-	padding: 0.5em;
+	
+	padding: 0.3em;
+	margin-right: 0.3em;
 	background: #bdbbbb;
 	color: #dbdbdb;
 	text-shadow: 0px 1px 0px #a8a8a8;
@@ -47,14 +47,20 @@
 	border-radius: 3px;
 }
 
-/* .key-modeSwitcher > *{
-	display: block;
-	width: 100%;
-} */
 .key-active {
 	background: #8a8888;
 	border-top: 2px solid #ef7508;
 	border-right: 2px solid #ef7508;
 	border-bottom: none;
 	border-left: none;
+}
+
+.modeSelector li {
+	list-style-type: none;
+}
+
+.modeSelectorLED {
+	display: flex;
+	flex-direction: column;
+	justify-content: space-around;
 }
