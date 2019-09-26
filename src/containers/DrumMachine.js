@@ -21,7 +21,6 @@ import '../static/styles/Board.css'
 // • ADD STATE
 // • Conditional grid render for keys (3/4 in row) - Board property
 // Add Key click event
-// https://stackoverflow.com/a/44434971
 
 class DrumMachine extends React.Component {
 
