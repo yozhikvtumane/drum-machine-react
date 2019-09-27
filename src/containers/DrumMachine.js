@@ -20,7 +20,9 @@ import '../static/styles/Board.css'
 //
 // • ADD STATE
 // • Conditional grid render for keys (3/4 in row) - Board property
-// Add Key click event
+// • Add Key click event
+// Redo ModeSwitcher from Key component to standalone component
+
 
 class DrumMachine extends React.Component {
 
@@ -29,21 +31,24 @@ class DrumMachine extends React.Component {
 		
 		this.state = {...modes[this.props.initMode]}
 		this.changeMode = this.changeMode.bind(this)
+		this.changeModeOnClick = this.changeModeOnClick.bind(this)
 	}
 	
-	componentDidMount() {
-		window.addEventListener('keydown' , (e) => this.changeMode(e))
-	}
 	
 	changeMode(e) {
 		// console.log(e.nativeEvent.type)
-		console.log(e)
 		// if (e.nativeEvent.type === undefined) {
-			
-		// }
-		
 		if (e.keyCode !== 81) return
-		const key = document.querySelector(`div[data-key="${e.keyCode}"]`)
+			console.log('event from changeMode', e.type)
+		let key
+		if (e.type === "keydown") {
+			key = document.querySelector(`div[data-key="${e.keyCode}"]`)
+		}
+		
+		if (e.type === "click") {
+			// key = 
+		}
+			
 		console.log("key" , key)
 		key.classList.add('key-active')
 		
@@ -63,55 +68,61 @@ class DrumMachine extends React.Component {
 			})
 			
 		}
-	}
-	
-	render() {
-		const keyCodes = [...this.state.keyCodes]
-		const keys = [...this.state.keys]
-		let mode
-		
-		const audios = this.state.samples.map( (sample, i, arr) => {
-			
-			return (
-				<audio  data-key={keyCodes[i]} key={keyCodes[i]} src={sample}></audio>
-			)
-			
-		})
-		
-		if (this.state.mode === "drums") {
-			mode = 	<ul className="modeSelectorLED">
-						<li data-mode="drums" className="mode-switcher mode-switcher-active"><span role="img" aria-label="switch">🟢</span> DRUMS</li>
-						<li data-mode="synth" className="mode-switcher"><span role="img" aria-label="switch">⚪</span> SYNTH</li>
-					</ul>
-		} else {
-			mode = 	<ul className="modeSelectorLED">
-						<li data-mode="drums" className="mode-switcher"><span role="img" aria-label="switch">⚪</span> DRUMS</li>
-						<li data-mode="synth" className="mode-switcher mode-switcher-active"><span role="img" aria-label="switch">🟢</span> SYNTH</li>
-					</ul>
 		}
 		
-		return (
-			
-			<React.Fragment>
-				<h1 className="title">Reactive DM 3000</h1>
-				<div className="modeSelector">
-					<Key keyName="modeSwitcher" keyId={81} clickHandler={this.changeMode}/>
-					{mode}
-				</div>
-				<Board keys={keys} keyCodes={keyCodes} mode={this.state.mode}/>
-				<div className="audios">{audios}</div>
-			</React.Fragment>
-			
-			// <div className="drumMachine">
-			// 	<div className="modeSelector">
-			// 		<span>Mode:</span>
-			// 		{mode}
-			// 	</div>
-			// 	<Board keys={keys} keyCodes={keyCodes} />
-			// 	<div className="audios">{audios}</div>
-			// </div>
+		changeModeOnClick(e) {
+			// console.log("changemodeonclick" , e.srcElement.innerText)
+			// console.log("changemodeonclick" , e.srcElement.innerText)
+			// console.log("changemodeonclick" , e.srcElement.innerText)
+			// console.log("changemodeonclick" , e.srcElement.innerText)
+			console.log("changemodeonclick" , e)
+			this.changeMode(e)
+		}
 		
-		)
+		componentDidMount() {
+			window.addEventListener('keydown' , (e) => this.changeMode(e))
+			document.addEventListener('click', (e) => this.changeModeOnClick(e))
+		}
+		
+		render() {
+			const keyCodes = [...this.state.keyCodes]
+			const keys = [...this.state.keys]
+			let mode
+		
+			const audios = this.state.samples.map( (sample, i, arr) => {
+			
+				return (
+					<audio  data-key={keyCodes[i]} key={keyCodes[i]} src={sample}></audio>
+				)
+			
+			})
+		
+			if (this.state.mode === "drums") {
+				mode = 	<ul className="modeSelectorLED">
+							<li data-mode="drums" className="mode-switcher mode-switcher-active"><span role="img" aria-label="switch">🟢</span> DRUMS</li>
+							<li data-mode="synth" className="mode-switcher"><span role="img" aria-label="switch">⚪</span> SYNTH</li>
+						</ul>
+			} else {
+				mode = 	<ul className="modeSelectorLED">
+							<li data-mode="drums" className="mode-switcher"><span role="img" aria-label="switch">⚪</span> DRUMS</li>
+							<li data-mode="synth" className="mode-switcher mode-switcher-active"><span role="img" aria-label="switch">🟢</span> SYNTH</li>
+						</ul>
+			}
+			
+			return (
+				
+				<React.Fragment>
+					<h1 className="title">Reactive DM 3000</h1>
+					<div className="modeSelector">
+						<Key keyName="modeSwitcher" keyId={81} onClick={this.changeModeOnClick}/>
+						{mode}
+					</div>
+					<Board keys={keys} keyCodes={keyCodes} mode={this.state.mode}/>
+					<div className="audios">{audios}</div>
+				</React.Fragment>
+			
+			)
 	}
 }
+
 export default DrumMachine
