@@ -109,12 +109,14 @@ class DrumMachine extends React.Component {
 						</ul>
 			}
 			
+			
+			
 			return (
 				
 				<React.Fragment>
 					<h1 className="title">Reactive DM 3000</h1>
 					<div className="modeSelector">
-						<Key keyName="modeSwitcher" keyId={81} onClick={this.changeModeOnClick}/>
+						{/* <Key keyName="modeSwitcher" keyId={81} onClick={this.changeModeOnClick}/> */}
 						{mode}
 					</div>
 					<Board keys={keys} keyCodes={keyCodes} mode={this.state.mode}/>
