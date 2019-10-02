@@ -25,21 +25,21 @@ class Board extends React.Component {
 	componentDidMount() {
 		window.addEventListener('keydown', (e) => this.handleKeyPress(e))
 	}
+	
+	componentWillUnmount() {
+		window.removeEventListener('keydown', (e) => this.handleKeyPress(e))
+	}
 			
 	render() {
 		const keys = this.props.keys.map( (key, i, arr) => {
 			return (
-				
 				<Key keyId={this.props.keyCodes[i]} keyName={key} onClick={this.handleKeyPress} />
-			
 			)
 		})
 		return (
-			
 			<div className={`board board-${this.props.mode}`}>
 				{keys}
 			</div>
-			
 		)
 	}
 }

@@ -21,7 +21,8 @@ import '../static/styles/Board.css'
 // • ADD STATE
 // • Conditional grid render for keys (3/4 in row) - Board property
 // • Add Key click event
-// Redo ModeSwitcher from Key component to standalone component
+// • Redo ModeSwitcher from Key component to standalone component
+// • MOVE SWITCHER AND LEDS TO STANDALONE COMPONENTS
 
 
 class DrumMachine extends React.Component {
@@ -53,7 +54,11 @@ class DrumMachine extends React.Component {
 	changeMode(e) {
 		// console.log(e.nativeEvent.type)
 		// if (e.nativeEvent.type === undefined) {
-		console.dir(e.target)
+		// console.dir(e.target)
+		// e.stopPropagation()
+		console.log(this)
+		console.log(e.target)
+		console.log(e)
 		console.log('e.type', e.type)
 		if (e.type === "keydown" && e.keyCode === 81 ) {
 			this.handleChangeMode()
@@ -63,46 +68,13 @@ class DrumMachine extends React.Component {
 			console.log("modeSwitcher", e.target.dataset.id)
 			this.handleChangeMode()
 		}
-		// return
-		// return false
-		// console.log("key" , key)
-		// key.classList.add('key-active')
-		
-		// console.log(e.keyCode)
-		// console.log("state")
-		// console.dir(this.state)
-		
-		// if (this.state.mode === "synth") {
-		// 	this.setState( () => {
-		// 		key.classList.remove('key-active')
-		// 		return {...modes.drums}
-		// 	})
-		// } else {
-		// 	this.setState( () => {
-		// 		key.classList.remove('key-active')
-		// 		return {...modes.synth}
-		// 	})
-			
-		// }
-		}
-		
-		// changeModeOnClick(e) {
-		// 	// console.log("changemodeonclick" , e.srcElement.innerText)
-		// 	// console.log("changemodeonclick" , e.srcElement.innerText)
-		// 	// console.log("changemodeonclick" , e.srcElement.innerText)
-		// 	// console.log("changemodeonclick" , e.srcElement.innerText)
-		// 	console.log("changemodeonclick" , e)
-		// 	this.changeMode(e)
-		// }
-		
+	}
 		componentDidMount() {
 			window.addEventListener('keydown' , (e) => this.changeMode(e))
-			// document.addEventListener('click', (e) => this.changeModeOnClick(e))
 		}
-		
-		// componentWillUnmount() {
-		// 	window.removeEventListener('keydown')
-		// }
+		componentWillUnmount() {
+			window.removeEventListener('keydown' , (e) => this.changeMode(e))
+		}
 		
 		render() {
 			const keyCodes = [...this.state.keyCodes]
@@ -117,33 +89,11 @@ class DrumMachine extends React.Component {
 			
 			})
 		
-			if (this.state.mode === "drums") {
-				mode = 	<ul className="modeSelectorLED">
-							<li data-mode="drums" className="mode-switcher mode-switcher-active"><span role="img" aria-label="switch">🟢</span> DRUMS</li>
-							<li data-mode="synth" className="mode-switcher"><span role="img" aria-label="switch">⚪</span> SYNTH</li>
-						</ul>
-			} else {
-				mode = 	<ul className="modeSelectorLED">
-							<li data-mode="drums" className="mode-switcher"><span role="img" aria-label="switch">⚪</span> DRUMS</li>
-							<li data-mode="synth" className="mode-switcher mode-switcher-active"><span role="img" aria-label="switch">🟢</span> SYNTH</li>
-						</ul>
-			}
-			
-			
-			
-			// MOVE SWITCHER AND LEDS TO STANDALONE COMPONENTS
-			
-			
-			
 			return (
 				
 				<React.Fragment>
 					<h1 className="title">Reactive DM 3000</h1>
-					<div className="modeSelector">
-						{/* <Key keyName="modeSwitcher" keyId={81} onClick={(e) => this.changeMode(e)}/> */}
-						<ModeSwitcher mode={this.state.mode} clickHandler={this.changeMode}/>
-						{mode}
-					</div>
+					<ModeSwitcher mode={this.state.mode} clickHandler={this.changeMode}/>
 					<Board keys={keys} keyCodes={keyCodes} mode={this.state.mode}/>
 					<div className="audios">{audios}</div>
 				</React.Fragment>
