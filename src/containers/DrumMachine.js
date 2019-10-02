@@ -1,6 +1,6 @@
 import React from 'react'
 import Board from '../components/Board'
-import Key from '../components/Key'
+import ModeSwitcher from '../components/ModeSwitcher'
 import modes from '../misc/modes'
 import '../static/styles/DrumMachine.css'
 import '../static/styles/Board.css'
@@ -31,58 +31,78 @@ class DrumMachine extends React.Component {
 		
 		this.state = {...modes[this.props.initMode]}
 		this.changeMode = this.changeMode.bind(this)
-		this.changeModeOnClick = this.changeModeOnClick.bind(this)
+		// this.handleChangeMode = this.handleChangeMode.bind(this)
+		// this.changeModeOnClick = this.changeModeOnClick.bind(this)
 	}
 	
-	
-	changeMode(e) {
-		// console.log(e.nativeEvent.type)
-		// if (e.nativeEvent.type === undefined) {
-		if (e.keyCode !== 81) return
-			console.log('event from changeMode', e.type)
-		let key
-		if (e.type === "keydown") {
-			key = document.querySelector(`div[data-key="${e.keyCode}"]`)
-		}
-		
-		if (e.type === "click") {
-			// key = 
-		}
-			
-		console.log("key" , key)
-		key.classList.add('key-active')
-		
-		console.log(e.keyCode)
-		console.log("state")
-		console.dir(this.state)
-		
+	handleChangeMode() {
+		// e.preventDefault()
 		if (this.state.mode === "synth") {
 			this.setState( () => {
-				key.classList.remove('key-active')
+		// 		key.classList.remove('key-active')
 				return {...modes.drums}
 			})
 		} else {
 			this.setState( () => {
-				key.classList.remove('key-active')
+		// 		key.classList.remove('key-active')
 				return {...modes.synth}
 			})
-			
 		}
+		console.log(this.state)
+	}
+	changeMode(e) {
+		// console.log(e.nativeEvent.type)
+		// if (e.nativeEvent.type === undefined) {
+		console.dir(e.target)
+		console.log('e.type', e.type)
+		if (e.type === "keydown" && e.keyCode === 81 ) {
+			this.handleChangeMode()
 		}
 		
-		changeModeOnClick(e) {
-			// console.log("changemodeonclick" , e.srcElement.innerText)
-			// console.log("changemodeonclick" , e.srcElement.innerText)
-			// console.log("changemodeonclick" , e.srcElement.innerText)
-			// console.log("changemodeonclick" , e.srcElement.innerText)
-			console.log("changemodeonclick" , e)
-			this.changeMode(e)
+		if (e.type === "click" && e.target.dataset.id === "modeSwitcher") {
+			console.log("modeSwitcher", e.target.dataset.id)
+			this.handleChangeMode()
 		}
+		// return
+		// return false
+		// console.log("key" , key)
+		// key.classList.add('key-active')
+		
+		// console.log(e.keyCode)
+		// console.log("state")
+		// console.dir(this.state)
+		
+		// if (this.state.mode === "synth") {
+		// 	this.setState( () => {
+		// 		key.classList.remove('key-active')
+		// 		return {...modes.drums}
+		// 	})
+		// } else {
+		// 	this.setState( () => {
+		// 		key.classList.remove('key-active')
+		// 		return {...modes.synth}
+		// 	})
+			
+		// }
+		}
+		
+		// changeModeOnClick(e) {
+		// 	// console.log("changemodeonclick" , e.srcElement.innerText)
+		// 	// console.log("changemodeonclick" , e.srcElement.innerText)
+		// 	// console.log("changemodeonclick" , e.srcElement.innerText)
+		// 	// console.log("changemodeonclick" , e.srcElement.innerText)
+		// 	console.log("changemodeonclick" , e)
+		// 	this.changeMode(e)
+		// }
 		
 		componentDidMount() {
 			window.addEventListener('keydown' , (e) => this.changeMode(e))
-			document.addEventListener('click', (e) => this.changeModeOnClick(e))
+			// document.addEventListener('click', (e) => this.changeModeOnClick(e))
 		}
+		
+		// componentWillUnmount() {
+		// 	window.removeEventListener('keydown')
+		// }
 		
 		render() {
 			const keyCodes = [...this.state.keyCodes]
@@ -111,12 +131,17 @@ class DrumMachine extends React.Component {
 			
 			
 			
+			// MOVE SWITCHER AND LEDS TO STANDALONE COMPONENTS
+			
+			
+			
 			return (
 				
 				<React.Fragment>
 					<h1 className="title">Reactive DM 3000</h1>
 					<div className="modeSelector">
-						{/* <Key keyName="modeSwitcher" keyId={81} onClick={this.changeModeOnClick}/> */}
+						{/* <Key keyName="modeSwitcher" keyId={81} onClick={(e) => this.changeMode(e)}/> */}
+						<ModeSwitcher mode={this.state.mode} clickHandler={this.changeMode}/>
 						{mode}
 					</div>
 					<Board keys={keys} keyCodes={keyCodes} mode={this.state.mode}/>

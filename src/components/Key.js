@@ -19,27 +19,17 @@ class Key extends React.Component {
 		key.classList.add('key-active')
 		
 		sound.currentTime = 0
-		sound.play().then(sound => key.classList.remove('key-active')).catch(err => console.dir(err))
+		sound.play().then(sound => key.classList.remove('key-active')).catch(err => console.log(err))
 	}
 	
 	render() {
-		let keyEl
-		
-		if (this.props.keyName === "modeSwitcher") {
-			keyEl =
-				<div className="key-modeSwitcher" data-key={this.props.keyId} onClick={this.props.clickHandler}>
-					<kbd>MODE</kbd>
-					<kbd>Q</kbd>
-				</div>
+
+		return (
+			<div className="key" data-key={this.props.keyId} onClick={this.handleKeyClickEvent}>
+				<kbd>{this.props.keyName}</kbd>
+			</div>
 			
-		} else {
-			keyEl = 
-				<div className="key" data-key={this.props.keyId} onClick={this.handleKeyClickEvent}>
-					<kbd>{this.props.keyName}</kbd>
-				</div>
-		}
-		
-		return keyEl
+		)
 	}
 	
 	

@@ -3,6 +3,7 @@ import ReactDOM from 'react-dom';
 import 'normalize.css'
 import './static/styles/index.css'
 import DrumMachine from '../src/containers/DrumMachine';
+import './static/img/switcher.svg'
 // import * as serviceWorker from './serviceWorker';
 
 ReactDOM.render(<DrumMachine initMode="synth"/>, document.getElementById('drumMachine'));
