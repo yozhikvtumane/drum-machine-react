@@ -5,15 +5,14 @@ import React from "react"
 class Key extends React.Component {
 	constructor(props) {
 		super(props)
-		console.log(props)
+		
 		this.handleKeyClickEvent = this.handleKeyClickEvent.bind(this)
 	}
 	
 	handleKeyClickEvent(e) {
-		console.log(this.props)
-		
 		const sound = document.querySelector(`audio[data-key="${this.props.keyId}"]`)
 		const key = document.querySelector(`div[data-key="${this.props.keyId}"]`)
+		
 		if (!sound || !key) return
 		
 		key.classList.add('key-active')
@@ -28,12 +27,9 @@ class Key extends React.Component {
 			<div className="key" data-key={this.props.keyId} onClick={this.handleKeyClickEvent}>
 				<kbd>{this.props.keyName}</kbd>
 			</div>
-			
 		)
+	
 	}
-	
-	
-
 }
 
 export default Key

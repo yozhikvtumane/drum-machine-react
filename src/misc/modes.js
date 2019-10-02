@@ -25,6 +25,5 @@ for (let i in drumSamples) {
 for (let i in synthSamples) {
 	modes.synth.samples.push(synthSamples[i]) 
 }
-console.log(modes)
 
 export default modes

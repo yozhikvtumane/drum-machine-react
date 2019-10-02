@@ -2,7 +2,6 @@ import React from 'react'
 
 class ModeSwitcher extends React.Component {
 	render() {
-		console.log(this.props)
 		let mode
 		if (this.props.mode === "drums") {
 			mode = <ul>
@@ -17,6 +16,7 @@ class ModeSwitcher extends React.Component {
 						<li data-mode="synth" className="mode-switcher mode-switcher-active"><span role="img" aria-label="switch">🟢</span> SYNTH</li>
 					</ul>
 		}
+
 		return(
 			<div className="modeSelector">
 				<span className="modeTag">MODE(Q)</span>

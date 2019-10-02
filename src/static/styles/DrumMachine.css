@@ -22,6 +22,7 @@
 .modeSelector {
 	display: flex;
 	justify-content: flex-end;
+	
 	margin-bottom: 2em;
 	padding: 0.3em 0.3em 1.5em 0.3em;
 	border-bottom: 3px dashed #333;
@@ -30,8 +31,8 @@
 
 .modeSelector li {
 	display: flex;
+	
 	align-items: center;
-
 	list-style-type: none;
 }
 
