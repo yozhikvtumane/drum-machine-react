@@ -1,0 +1,11 @@
+@media (max-width: 880px) {
+	#drumMachine {
+		width: 60%;
+	}
+}
+
+@media (max-width: 620px) {
+	#drumMachine {
+		width: 90%;
+	}
+}
